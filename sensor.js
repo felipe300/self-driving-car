@@ -20,9 +20,9 @@ class Sensor {
   #getReading(ray, roadBorders, traffic) {
     let touches = []
     for (let i = 0; i < roadBorders.length; i++) {
-      const touch = 
+      const touch =
         getIntersection(ray[0], ray[1], roadBorders[i][0], roadBorders[i][1])
-        
+
       if (touch) {
         touches.push(touch)
       }
@@ -31,8 +31,8 @@ class Sensor {
     for (let i = 0; i < traffic.length; i++) {
       const poly = traffic[i].polygon
       for (let j = 0; j < poly.length; j++) {
-        const value = 
-        getIntersection(ray[0], ray[1], poly[j], poly[(j +1) % poly.length])
+        const value =
+          getIntersection(ray[0], ray[1], poly[j], poly[(j + 1) % poly.length])
 
         if (value) {
           touches.push(value)
@@ -59,7 +59,7 @@ class Sensor {
       ) + this.car.angle
 
       const start = { x: this.car.x, y: this.car.y }
-      const end = { 
+      const end = {
         x: this.car.x - Math.sin(rayAngle) * this.rayLenght,
         y: this.car.y - Math.cos(rayAngle) * this.rayLenght,
       }
